@@ -11,14 +11,19 @@
     "cookie-parser": "^1.4.4",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "helmet": "^3.20.0",
     "mongoose": "^5.6.10",
     "morgan": "^1.9.1",
     "multer": "^1.4.2",
-    "pug": "^2.0.4"
+    "pug": "^2.0.4",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7"
   },
   "scripts": {
-    "start": "nodemon --exec babel-node init.js --delay 3 "
+    "dev:server": "nodemon --exec babel-node init.js --delay 3 ",
+    "dev:assets": "WEBPACK_ENV=development webpack",
+    "bulid:assets": "WEBPACK_ENV=production webpack"
   },
   "devDependencies": {
     "eslint": "^6.2.2",
