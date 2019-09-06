@@ -1,12 +1,12 @@
 @import "config/variables";
 @import "config/reset.scss";
 @import "main.scss";
+
 @import "partials/header.scss";
 @import "partials/footer.scss";
 @import "partials/form.scss";
 @import "partials/socialLogin.scss";
+@import "partials/videoBlock.scss";
 
-video {
-  width: 300px;
-  height: 170px;
-}
+@import "pages/videoDetail.scss";
+@import "pages/home.scss";
