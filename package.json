@@ -28,7 +28,7 @@
     "webpack-cli": "^3.3.7"
   },
   "scripts": {
-    "dev:server": "nodemon --exec babel-node init.js --delay 3 ",
+    "dev:server": "nodemon --exec babel-node init.js --delay 3 --ignore 'scss' ",
     "dev:assets": "WEBPACK_ENV=development webpack -w",
     "bulid:assets": "WEBPACK_ENV=production webpack"
   },
