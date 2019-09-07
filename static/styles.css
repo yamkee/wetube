@@ -235,7 +235,7 @@ html input[type="submit"] {
             align-items: center; }
     .header .header__wrapper .header__column i {
       color: white;
-      font-size: 40px; }
+      font-size: 30px; }
     .header .header__wrapper .header__column:nth-child(2) {
       width: 100%;
       justify-self: center; }
@@ -478,3 +478,10 @@ html input[type="submit"] {
   .home-videos .videoBlock:nth-child(4),
   .home-videos .videoBlock:nth-child(5) {
     grid-column: span 2; }
+
+.search__header {
+  font-size: 15px;
+  margin-bottom: 30px; }
+
+.search__videos .videoBlock video {
+  max-width: 30%; }
