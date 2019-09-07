@@ -4,6 +4,7 @@ import express from "express";
 import morgan from "morgan";
 import helmet from "helmet";
 import passport from "passport";
+import session from "express-session";
 import routes from "./routes";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
@@ -20,6 +21,13 @@ app.use("/static", express.static("static"));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(
+  session({
+    secret: process.env.COOKIE_SECRET,
+    resave: false,
+    saveUninitialized: false
+  })
+);
 app.use(morgan("dev"));
 app.use(passport.initialize());
 app.use(passport.session());
