@@ -1,8 +1,12 @@
 import passport from "passport";
 import GitHubStrategy from "passport-github";
+import FacebookStrategy from "passport-facebook";
 import routes from "./routes";
 import User from "./models/User";
-import { gitHubLoginCallback } from "./controllers/userController";
+import {
+  gitHubLoginCallback,
+  facebookLoginCallback
+} from "./controllers/userController";
 
 passport.use(User.createStrategy());
 
@@ -16,11 +20,21 @@ passport.use(
     gitHubLoginCallback
   )
 );
+passport.use(
+  new FacebookStrategy(
+    {
+      clientID: process.env.FB_ID,
+      clientSecret: process.env.FB_SECRET,
+      callbackURL: `https://ancient-parrot-64.localtunnel.me${routes.facebookCallback}`,
+      profileFields: ["id", "displayName", "photos", "email"],
+      scope: ["public_profile", "email"]
+    },
+    facebookLoginCallback
+  )
+);
 
 passport.serializeUser(function(user, done) {
   done(null, user.id);
-  // if you use Model.id as your idAttribute maybe you'd want
-  // done(null, user.id);
 });
 
 passport.deserializeUser(function(id, done) {
